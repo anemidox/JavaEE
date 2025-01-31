@@ -3,11 +3,9 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
+    <script src="index.js" defer></script>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+    <div id="root"></div>
 </body>
 </html>
