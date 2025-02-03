@@ -1,1 +1,7 @@
-document.getElementById('root').innerHTML = '<h1>Hello, World</h1>';
+import app from './app.js';
+
+const root = document.getElementById('root');
+
+if (root) {
+    root.innerHTML = app();
+}
