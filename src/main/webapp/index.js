@@ -1,7 +1,11 @@
-import app from './app.js';
+import app from './WEB-INF/app.js';
 
-const root = document.getElementById('root');
+document.addEventListener("DOMContentLoaded", () => {
+    const root = document.getElementById('root');
 
-if (root) {
-    root.innerHTML = app();
-}
+    if (root && typeof app === "function") {
+        root.innerHTML = app();
+    } else {
+        console.error("app is not a function or root is missing");
+    }
+});

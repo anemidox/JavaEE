@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
-    <script src="index.js" defer></script>
+    <script type="module" src="index.js" defer></script>
 </head>
 <body>
     <div id="root"></div>
