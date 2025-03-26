@@ -11,6 +11,6 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<h1>Welcome to Java EE Web Application Test</h1>");
+        out.println("<h1>Welcome to Java EE Web Application</h1>");
     }
 }
