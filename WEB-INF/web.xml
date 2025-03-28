@@ -1,4 +1,5 @@
 <web-app xmlns="http://jakarta.ee/xml/ns/jakartaee" version="5.0">
+    <!-- HelloServlet Configuration -->
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.mycompany.servlets.HelloServlet</servlet-class>
@@ -8,4 +9,16 @@
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+
+    <!-- DatabaseTestServlet Configuration -->
+    <servlet>
+        <servlet-name>DatabaseTestServlet</servlet-name>
+        <servlet-class>com.mycompany.servlets.DatabaseTestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DatabaseTestServlet</servlet-name>
+        <url-pattern>/testdb</url-pattern>
+    </servlet-mapping>
+
 </web-app>

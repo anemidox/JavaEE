@@ -1,35 +1,26 @@
-package com.mycompany.utils;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
 public class DatabaseConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/your_database";
-    private static final String USER = "your_username";
-    private static final String PASSWORD = "your_password";
-    private static Connection connection = null;
+    private static final String URL = "jdbc:mysql://localhost:3306/java";
+    private static final String USER = "root";
+    private static final String PASSWORD = "dhanujatoor";
 
-    static {
-        try {
-            // Load the JDBC driver
-            // Replace with the appropriate class name from jcbd.jar
-            Class.forName("com.mysql.cj.jdbc.Driver");  // This depends on your jar file and the DB type
+    // Modify insertUser method to return a boolean indicating success or failure
+    public static boolean insertUser(String name, String email) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String sql = "INSERT INTO users (name, email) VALUES (?, ?)";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, name);
+                stmt.setString(2, email);
 
-            // Establish the connection
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("✅ Database Connected Successfully!");
-
-        } catch (ClassNotFoundException e) {
-            System.out.println("❌ JDBC Driver Not Found!");
+                int rowsInserted = stmt.executeUpdate();
+                return rowsInserted > 0; // Return true if rows are inserted, false otherwise
+            }
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            System.out.println("❌ Database Connection Failed!");
-            e.printStackTrace();
+            return false;  // Return false if an exception occurs
         }
-    }
-
-    public static Connection getConnection() {
-        return connection;
     }
 }
